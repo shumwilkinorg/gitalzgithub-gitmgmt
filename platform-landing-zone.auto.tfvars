@@ -58,15 +58,15 @@ custom_replacements = {
     primary_bastion_host_public_ip_name                = "pip-bastion-hub-$${starter_location_01}"
 
     # Resource names secondary connectivity
-    secondary_hub_name                                   = "vwan-hub-$${starter_location_02}"
-    secondary_sidecar_virtual_network_name               = "vnet-sidecar-$${starter_location_02}"
-    secondary_firewall_name                              = "fw-hub-$${starter_location_02}"
-    secondary_firewall_policy_name                       = "fwp-hub-$${starter_location_01}"
-    secondary_virtual_network_gateway_express_route_name = "vgw-hub-er-$${starter_location_02}"
-    secondary_virtual_network_gateway_vpn_name           = "vgw-hub-vpn-$${starter_location_02}"
-    secondary_private_dns_resolver_name                  = "pdr-hub-dns-$${starter_location_02}"
-    secondary_bastion_host_name                          = "bas-hub-$${starter_location_02}"
-    secondary_bastion_host_public_ip_name                = "pip-bastion-hub-$${starter_location_02}"
+    # secondary_hub_name                                   = "vwan-hub-$${starter_location_02}"
+    # secondary_sidecar_virtual_network_name               = "vnet-sidecar-$${starter_location_02}"
+    # secondary_firewall_name                              = "fw-hub-$${starter_location_02}"
+    # secondary_firewall_policy_name                       = "fwp-hub-$${starter_location_01}"
+    # secondary_virtual_network_gateway_express_route_name = "vgw-hub-er-$${starter_location_02}"
+    # secondary_virtual_network_gateway_vpn_name           = "vgw-hub-vpn-$${starter_location_02}"
+    # secondary_private_dns_resolver_name                  = "pdr-hub-dns-$${starter_location_02}"
+    # secondary_bastion_host_name                          = "bas-hub-$${starter_location_02}"
+    # secondary_bastion_host_public_ip_name                = "pip-bastion-hub-$${starter_location_02}"
 
     # Private DNS Zones primary
     primary_auto_registration_zone_name = "$${starter_location_01}.azure.local"
@@ -83,10 +83,10 @@ custom_replacements = {
 
     # IP Ranges Secondary
     # Regional Address Space: 10.1.0.0/16
-    secondary_hub_address_space                          = "10.150.0.0/22"
-    secondary_side_car_virtual_network_address_space     = "10.150.4.0/22"
-    secondary_bastion_subnet_address_prefix              = "10.150.4.0/26"
-    secondary_private_dns_resolver_subnet_address_prefix = "10.150.4.64/28"
+    # secondary_hub_address_space                          = "10.130.0.0/22"
+    # secondary_side_car_virtual_network_address_space     = "10.130.4.0/22"
+    # secondary_bastion_subnet_address_prefix              = "10.130.4.0/26"
+    # secondary_private_dns_resolver_subnet_address_prefix = "10.130.4.64/28"
   }
 
   /*
@@ -340,58 +340,5 @@ virtual_wan_virtual_hubs = {
       address_space = ["$${primary_side_car_virtual_network_address_space}"]
     }
   }
-  secondary = {
-    hub = {
-      name = "$${secondary_hub_name}"
-      /*
-      NOTE: We are defaulting to a separate resource group for the hub per best practice for resiliency
-      However, there is a known limitation with the portal experience: https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#can-hubs-be-created-in-different-resource-groups-in-virtual-wan
-      If you prefer to use the same resource group as the vwan, then set this to `$${connectivity_hub_vwan_resource_group_name}`
-      */
-      resource_group = "$${connectivity_hub_secondary_resource_group_name}"
-      location       = "$${starter_location_02}"
-      address_prefix = "$${secondary_hub_address_space}"
-    }
-    firewall = {
-      name     = "$${secondary_firewall_name}"
-      sku_name = "AZFW_Hub"
-      sku_tier = "Standard"
-      zones    = "$${starter_location_02_availability_zones}"
-    }
-    firewall_policy = {
-      name = "$${secondary_firewall_policy_name}"
-    }
-    virtual_network_gateways = {
-      express_route = {
-        name = "$${secondary_virtual_network_gateway_express_route_name}"
-      }
-      vpn = {
-        name = "$${secondary_virtual_network_gateway_vpn_name}"
-      }
-    }
-    private_dns_zones = {
-      resource_group_name            = "$${dns_resource_group_name}"
-      is_primary                     = false
-      auto_registration_zone_enabled = true
-      auto_registration_zone_name    = "$${secondary_auto_registration_zone_name}"
-      subnet_address_prefix          = "$${secondary_private_dns_resolver_subnet_address_prefix}"
-      private_dns_resolver = {
-        name = "$${secondary_private_dns_resolver_name}"
-      }
-    }
-    bastion = {
-      subnet_address_prefix = "$${secondary_bastion_subnet_address_prefix}"
-      bastion_host = {
-        name = "$${secondary_bastion_host_name}"
-      }
-      bastion_public_ip = {
-        name  = "$${secondary_bastion_host_public_ip_name}"
-        zones = "$${starter_location_02_availability_zones}"
-      }
-    }
-    side_car_virtual_network = {
-      name          = "$${secondary_sidecar_virtual_network_name}"
-      address_space = ["$${secondary_side_car_virtual_network_address_space}"]
-    }
-  }
+
 }
