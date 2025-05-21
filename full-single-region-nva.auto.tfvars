@@ -79,14 +79,14 @@ custom_replacements = {
     # secondary_auto_registration_zone_name = "$${starter_location_02}.azure.local"
 
     # IP Ranges Primary
-    # Regional Address Space: 10.0.0.0/16
-    primary_hub_address_space                          = "10.0.0.0/16"
-    primary_hub_virtual_network_address_space          = "10.0.0.0/22"
-    primary_nva_subnet_address_prefix                  = "10.0.0.0/26"
-    primary_nva_ip_address                             = "10.0.0.4"
-    primary_bastion_subnet_address_prefix              = "10.0.0.64/26"
-    primary_gateway_subnet_address_prefix              = "10.0.0.128/27"
-    primary_private_dns_resolver_subnet_address_prefix = "10.0.0.160/28"
+    # Regional Address Space: 10.136.64.0/19
+    primary_hub_address_space                          = "10.136.64.0/24"
+    primary_hub_virtual_network_address_space          = "10.136.64.0/24"
+    primary_nva_subnet_address_prefix                  = "10.136.64.64/27"
+    primary_nva_ip_address                             = "10.136.64.68"
+    #primary_bastion_subnet_address_prefix              = "10.0.0.64/26"
+    primary_gateway_subnet_address_prefix              = "10.136.64.128/26"
+    primary_private_dns_resolver_subnet_address_prefix = "10.136.64.96/27"
 
     # IP Ranges Secondary
     # Regional Address Space: 10.1.0.0/16
