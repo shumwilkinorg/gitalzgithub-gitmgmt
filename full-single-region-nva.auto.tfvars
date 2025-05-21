@@ -55,8 +55,8 @@ custom_replacements = {
     primary_virtual_network_gateway_vpn_public_ip_name_1         = "pip-vgw-hub-vpn-$${starter_location_01}-001"
     primary_virtual_network_gateway_vpn_public_ip_name_2         = "pip-vgw-hub-vpn-$${starter_location_01}-002"
     primary_private_dns_resolver_name                            = "pdr-hub-dns-$${starter_location_01}"
-    primary_bastion_host_name                                    = "bas-hub-$${starter_location_01}"
-    primary_bastion_host_public_ip_name                          = "pip-bastion-hub-$${starter_location_01}"
+    #primary_bastion_host_name                                    = "bas-hub-$${starter_location_01}"
+    #primary_bastion_host_public_ip_name                          = "pip-bastion-hub-$${starter_location_01}"
 
     # Resource names secondary connectivity
     # secondary_virtual_network_name                                 = "vnet-hub-$${starter_location_02}"
@@ -358,18 +358,18 @@ hub_and_spoke_vnet_virtual_networks = {
         name    = "$${primary_private_dns_resolver_name}"
       }
     }
-    bastion = {
-      enabled               = false
-      subnet_address_prefix = "$${primary_bastion_subnet_address_prefix}"
-      bastion_host = {
-        name  = "$${primary_bastion_host_name}"
-        zones = "$${starter_location_01_availability_zones}"
-      }
-      bastion_public_ip = {
-        name  = "$${primary_bastion_host_public_ip_name}"
-        zones = "$${starter_location_01_availability_zones}"
-      }
-    }
+    # bastion = {
+    #   enabled               = false
+    #   subnet_address_prefix = "$${primary_bastion_subnet_address_prefix}"
+    #   bastion_host = {
+    #     name  = "$${primary_bastion_host_name}"
+    #     zones = "$${starter_location_01_availability_zones}"
+    #   }
+    #   bastion_public_ip = {
+    #     name  = "$${primary_bastion_host_public_ip_name}"
+    #     zones = "$${starter_location_01_availability_zones}"
+    #   }
+    # }
   }
   # secondary = {
   #   hub_virtual_network = {
