@@ -221,6 +221,46 @@ management_group_settings = {
             enableAscForCspm                            = "Disabled"
           }
         }
+        Audit-ResourceRGLocation = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Audit-TrustedLaunch = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Audit-UnusedResources = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Audit-ZoneResiliency = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Classic-Resources = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-UnmanagedDisk = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-ASC-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-AzActivity-Log = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-Diag-LogsCat = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-MDEndpointsAMA = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-MDFC-OssDb = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-MDFC-SqlAtp = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-ACSB = {
+          enforcement_mode = "DoNotEnforce"
+        }
+
       }
     }
     
@@ -362,10 +402,10 @@ management_group_settings = {
         Enable-AUM-CheckUpdates = {
           enforcement_mode = "DoNotEnforce"
         }
-        DEnforce-ASR = {
+        Enforce-ASR = {
           enforcement_mode = "DoNotEnforce"
         }
-        DEnforce-GR-KeyVault = {
+        Enforce-GR-KeyVault = {
           enforcement_mode = "DoNotEnforce"
         }
         Enforce-Subnet-Private = {
