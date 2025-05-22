@@ -46,8 +46,9 @@ custom_replacements = {
 
     # Resource names primary connectivity
     primary_virtual_network_name                                 = "vnet-hub-$${starter_location_01}"
-    primary_subnet_nva_name_pub_1                                = "subnet-nva-$${starter_location_01}"
-    primary_subnet_nva_name_mgmt_1                               = "subnet-nva-mgmt-$${starter_location_01}"                    
+    primary_subnet_nva_name_pub_1                                = "subnet-nva-pub-$${starter_location_01}"
+    primary_subnet_nva_name_mgmt_1                               = "subnet-nva-mgmt-$${starter_location_01}"
+    primary_subnet_nva_name_pri_1                                = "subnet-nva-pri-$${starter_location_01}"                   
     primary_route_table_firewall_name                            = "rt-hub-fw-$${starter_location_01}"
     primary_route_table_user_subnets_name                        = "rt-hub-std-$${starter_location_01}"
     primary_virtual_network_gateway_express_route_name           = "vgw-hub-er-$${starter_location_01}"
@@ -84,7 +85,8 @@ custom_replacements = {
     primary_hub_address_space                          = "10.136.64.0/24"
     primary_hub_virtual_network_address_space          = "10.136.64.0/24"
     primary_nva_subnet_address_prefix_pub_1            = "10.136.64.64/27"
-    primary_nva_subnet_address_prefix_mgmt_1            = "10.136.64.0/27"
+    primary_nva_subnet_address_prefix_mgmt_1           = "10.136.64.0/27"
+    primary_nva_subnet_address_prefix_pri_1            = "10.136.64.32/27"
     primary_nva_ip_address                             = "10.136.64.68"
     #primary_bastion_subnet_address_prefix              = "10.0.0.64/26"
     primary_gateway_subnet_address_prefix              = "10.136.64.128/26"
@@ -498,6 +500,10 @@ hub_and_spoke_vnet_virtual_networks = {
         mgmt = {
           name             = "$${primary_subnet_nva_name_mgmt_1}"
           address_prefixes = ["$${primary_nva_subnet_address_prefix_mgmt_1}"]
+        }
+        pri = {
+          name             = "$${primary_subnet_nva_name_pri_1}"
+          address_prefixes = ["$${primary_nva_subnet_address_prefix_pri_1}"]
         }
       }
     }
