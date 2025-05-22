@@ -207,18 +207,18 @@ management_group_settings = {
             ascExportResourceGroupName                  = "$${asc_export_resource_group_name}"
             ascExportResourceGroupLocation              = "$${starter_location_01}"
             emailSecurityContact                        = "$${defender_email_security_contact}"
-            enableAscForServers                         = "Audit"
-            enableAscForServersVulnerabilityAssessments = "Audit"
-            enableAscForSql                             = "Audit"
-            enableAscForAppServices                     = "Audit"
-            enableAscForStorage                         = "Audit"
-            enableAscForContainers                      = "Audit"
-            enableAscForKeyVault                        = "Audit"
-            enableAscForSqlOnVm                         = "Audit"
-            enableAscForArm                             = "Audit"
-            enableAscForOssDb                           = "Audit"
-            enableAscForCosmosDbs                       = "Audit"
-            enableAscForCspm                            = "Audit"
+            enableAscForServers                         = "Disabled"
+            enableAscForServersVulnerabilityAssessments = "Disabled"
+            enableAscForSql                             = "Disabled"
+            enableAscForAppServices                     = "Disabled"
+            enableAscForStorage                         = "Disabled"
+            enableAscForContainers                      = "Disabled"
+            enableAscForKeyVault                        = "Disabled"
+            enableAscForSqlOnVm                         = "Disabled"
+            enableAscForArm                             = "Disabled"
+            enableAscForOssDb                           = "Disabled"
+            enableAscForCosmosDbs                       = "Disabled"
+            enableAscForCspm                            = "Disabled"
           }
         }
       }
@@ -237,6 +237,18 @@ management_group_settings = {
     # Example of how to update a policy assignment enforcement mode for Private Link DNS Zones
     corp = {
       policy_assignments = {
+        Audit-PeDnsZones = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-HybridNetworking = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Public-Endpoints = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Public-IP-On-NIC = {
+          enforcement_mode = "DoNotEnforce"
+        }
         Deploy-Private-DNS-Zones = {
           enforcement_mode = "DoNotEnforce"
         }
@@ -318,6 +330,62 @@ management_group_settings = {
           enforcement_mode = "DoNotEnforce"
         }
 
+      }
+    }
+
+    platform = {
+      policy_assignments = {
+        DenyAction-DeleteUAMIAMA = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-MDFC-DefSQL-AMA = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VM-ChangeTrack = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VM-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-vmArc-ChangeTrack = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-vmHybr-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VMSS-ChangeTrack = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VMSS-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enable-AUM-CheckUpdates = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        DEnforce-ASR = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        DEnforce-GR-KeyVault = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-Subnet-Private = {
+          enforcement_mode = "DoNotEnforce"
+        }
+      }
+    }
+    sandbox = {
+      policy_assignments = {
+        Enforce-ALZ-Sandbox = {
+          enforcement_mode = "DoNotEnforce"
+        }
+      }
+    }
+
+    decommissioned = {
+      policy_assignments = {
+        Enforce-ALZ-Decomm = {
+          enforcement_mode = "DoNotEnforce"
+        }
       }
     }
     
