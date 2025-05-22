@@ -207,33 +207,33 @@ management_group_settings = {
             ascExportResourceGroupName                  = "$${asc_export_resource_group_name}"
             ascExportResourceGroupLocation              = "$${starter_location_01}"
             emailSecurityContact                        = "$${defender_email_security_contact}"
-            enableAscForServers                         = "DeployIfNotExists"
-            enableAscForServersVulnerabilityAssessments = "DeployIfNotExists"
-            enableAscForSql                             = "DeployIfNotExists"
-            enableAscForAppServices                     = "DeployIfNotExists"
-            enableAscForStorage                         = "DeployIfNotExists"
-            enableAscForContainers                      = "DeployIfNotExists"
-            enableAscForKeyVault                        = "DeployIfNotExists"
-            enableAscForSqlOnVm                         = "DeployIfNotExists"
-            enableAscForArm                             = "DeployIfNotExists"
-            enableAscForOssDb                           = "DeployIfNotExists"
-            enableAscForCosmosDbs                       = "DeployIfNotExists"
-            enableAscForCspm                            = "DeployIfNotExists"
+            enableAscForServers                         = "Audit"
+            enableAscForServersVulnerabilityAssessments = "Audit"
+            enableAscForSql                             = "Audit"
+            enableAscForAppServices                     = "Audit"
+            enableAscForStorage                         = "Audit"
+            enableAscForContainers                      = "Audit"
+            enableAscForKeyVault                        = "Audit"
+            enableAscForSqlOnVm                         = "Audit"
+            enableAscForArm                             = "Audit"
+            enableAscForOssDb                           = "Audit"
+            enableAscForCosmosDbs                       = "Audit"
+            enableAscForCspm                            = "Audit"
           }
         }
       }
     }
     
-    # Example of how to update a policy assignment enforcement mode for DDOS Protection Plan
-    # connectivity = {
-    #   policy_assignments = {
-    #     Enable-DDoS-VNET = {
-    #       enforcement_mode = "DoNotEnforce"
-    #     }
-    #   }
-    # }
+    #Example of how to update a policy assignment enforcement mode for DDOS Protection Plan
+    connectivity = {
+      policy_assignments = {
+        Enable-DDoS-VNET = {
+          enforcement_mode = "DoNotEnforce"
+        }
+      }
+    }
     
-    /*
+    
     # Example of how to update a policy assignment enforcement mode for Private Link DNS Zones
     corp = {
       policy_assignments = {
@@ -242,7 +242,85 @@ management_group_settings = {
         }
       }
     }
-    */
+
+    landing_zones = {
+      policy_assignments = {
+        Deny-IP-forwarding = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-MgmtPorts-Internet = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Priv-Esc-AKS = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Privileged-AKS = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Storage-http = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deny-Subnet-Without-Nsg = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-AzSqlDb-Auditing = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-MDFC-DefSQL-AMA = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-SQL-TDE = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-SQL-Threat = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VM-Backup = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VM-ChangeTrack = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VM-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-vmArc-ChangeTrack = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-vmHybr-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VMSS-ChangeTrack = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Deploy-VMSS-Monitoring = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enable-AUM-CheckUpdates = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enable-DDoS-VNET = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-AKS-HTTPS = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-ASR = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-GR-KeyVault = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-Subnet-Private = {
+          enforcement_mode = "DoNotEnforce"
+        }
+        Enforce-TLS-SSL-Q225 = {
+          enforcement_mode = "DoNotEnforce"
+        }
+
+      }
+    }
+    
   }
   /*
   # Example of how to add management group role assignments
